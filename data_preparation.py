@@ -2,10 +2,10 @@ import pandas as pd
 
 def match_price_dates(data_frame_1: pd.DataFrame, data_frame_2: pd.DataFrame):
     """
-    Matches price dates between two dataframes
+    Matches price dates between two dataframes and removes useless columns
     :param data_frame_1:
     :param data_frame_2:
-    :return:
+    :return: new dataFrame
     """
     df1 = data_frame_1.copy()
     df2 = data_frame_2.copy()
