@@ -19,6 +19,11 @@ def prepare_price_df(extra_df: pd.DataFrame) -> pd.DataFrame:
     return df.set_index("date")
 
 def load_entire_dataset(database_path: str) -> pd.DataFrame:
+    """
+    Loads all .csv files from the specified folder and converts them into a final DataFrame for further analysis.
+    :param database_path:
+    :return: final DataFrame
+    """
     dfs = []
 
     for file in Path(database_path).rglob("*.csv"):
