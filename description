@@ -2,4 +2,12 @@ Pliki:
 - data_preparation.py
 funkcje dopasowujące daty notowań i przygotowujące dane do dalszej analizy
 
--
+date SYMBOL1_close SYMBOL1_change SYMBOL2_close SYMBOL2_change ...
+==============================================================
+PLAN PRACY
+- zrobić skrypt do rysowania wykresów cen, w taki sposób, żeby wybrane dwa instrumenty
+finansowe nakładały się na siebie
+
+- wykresy punktowe zmian cen dwóch instrumentów + prosta z regresji liniowej
+
+- poszczególne korelacje między dziennymi zmianami cen: wykres macierz korelacji oraz wartości
