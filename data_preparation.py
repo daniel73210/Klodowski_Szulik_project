@@ -10,7 +10,7 @@ def prepare_price_df(extra_df: pd.DataFrame) -> pd.DataFrame:
     symbol = extra_df["symbol"].iloc[0]
     df = extra_df.copy()
     df["date"] = pd.to_datetime(df["date"])
-    df["perc_change"] = df["close"].pct_change()
+    df["perc_change"] = df["close"].pct_change() * 100
 
     df = df[["date", "close", "perc_change"]]
 

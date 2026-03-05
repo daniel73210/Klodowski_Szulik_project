@@ -1,9 +1,17 @@
 Pliki:
--
+- config.py
+globalne stałe i potrzebne rzeczy
+
 - data_preparation.py
 funkcje dopasowujące daty notowań i przygotowujące dane do dalszej analizy
-
 date SYMBOL1_close SYMBOL1_change SYMBOL2_close SYMBOL2_change ...
+
+- plots.py
+funkcje do rysowania wykresów
+
+- correlations.py
+funkcje do analizy korelacji
+
 ==============================================================
 PLAN PRACY
 - wybrać ciekawsze zależności, a nie robić wszystkiego bezmyślnie
