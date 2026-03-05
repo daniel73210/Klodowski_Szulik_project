@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 
 def prepare_price_df(extra_df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -16,3 +17,23 @@ def prepare_price_df(extra_df: pd.DataFrame) -> pd.DataFrame:
     df.columns = [c if c == "date" else (symbol, c) for c in df.columns]
 
     return df.set_index("date")
+
+def load_entire_dataset(database_path: str) -> pd.DataFrame:
+    dfs = []
+
+    for file in Path(database_path).rglob("*.csv"):
+        try:
+            df = pd.read_csv(str(file), parse_dates=["date"])
+
+            prepared = prepare_price_df(df)
+            dfs.append(prepared)
+
+        except Exception as e:
+            print(f"Error reading file {file}: {e}")
+
+    final_df = pd.concat(dfs, axis=1, join="inner")
+    return final_df
+
+if __name__ == "__main__":
+    main_df = load_entire_dataset("price_charts_database_2026-03-04")
+    main_df.to_csv("prepared_data.csv")
