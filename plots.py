@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
+
 def price_change_plots_2_symbols(df: pd.DataFrame, combinations: list) -> None:
     """
     Draws scatter plots of the price changes of two symbols for the given combinations.
@@ -44,5 +45,15 @@ def price_change_plots_2_symbols(df: pd.DataFrame, combinations: list) -> None:
         print(f"Plots safed to: {output_file}")
 
 
+if __name__ == "__main__":
+    main_df = pd.read_csv("prepared_data.csv", header=[0, 1], index_col=0, parse_dates=True)
+    main_df = main_df.iloc[1:] # first row with NaNs omitted
 
-
+    # example
+    price_change_plots_2_symbols(main_df, combinations=[('GCUSD', '^GSPC'),
+                                                        ('SIUSD', '^GSPC'),
+                                                        ('BZUSD', '^GSPC'),
+                                                        ('EURUSD', '^GSPC'),
+                                                        ('BTCUSD', '^GSPC'),
+                                                        ('ETHUSD', '^GSPC')
+                                                        ])

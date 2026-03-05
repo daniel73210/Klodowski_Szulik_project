@@ -10,13 +10,13 @@ def prepare_price_df(extra_df: pd.DataFrame) -> pd.DataFrame:
     symbol = extra_df["symbol"].iloc[0]
     df = extra_df.copy()
     df["date"] = pd.to_datetime(df["date"])
-    df["perc_change"] = df["close"].pct_change() * 100
+    df["perc_change"] = (df["close"] / df["close"].shift(1) - 1) * 100
 
-    df = df[["date", "close", "perc_change"]]
+    df = df[["date", "close", "perc_change"]].set_index("date")
 
-    df.columns = [c if c == "date" else (symbol, c) for c in df.columns]
+    df.columns = pd.MultiIndex.from_product([[symbol], df.columns])
 
-    return df.set_index("date")
+    return df
 
 def load_entire_dataset(database_path: str) -> pd.DataFrame:
     """
