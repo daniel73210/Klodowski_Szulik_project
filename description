@@ -12,6 +12,10 @@ funkcje do rysowania wykresów
 - correlations.py
 funkcje do analizy korelacji
 
+- analysis.ipynb
+jupiter notebook musi być zainstalowany: python -m pip install notebook
+eksport do html: jupyter nbconvert analysis.ipynb --to html --template lab
+
 ==============================================================
 PLAN PRACY
 - wybrać ciekawsze zależności, a nie robić wszystkiego bezmyślnie
