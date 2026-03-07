@@ -15,6 +15,7 @@ funkcje do analizy korelacji
 - analysis.ipynb
 jupiter notebook musi być zainstalowany: python -m pip install notebook
 eksport do html: jupyter nbconvert analysis.ipynb --to html --template lab
+można też --template classic (nawet lepiej to wygląda)
 
 ==============================================================
 PLAN PRACY
